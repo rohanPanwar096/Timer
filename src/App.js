@@ -3,7 +3,7 @@ import Input from "./Input";
 
 function App() {
   return (
-    <div className=" ">
+    <div className="bg-pink-100 h-screen">
         <Input />
     </div>
   );
