@@ -21,7 +21,7 @@ export default function Input() {
             </label>
             <input className="rounded-lg border-2 border-gray py-1 px-2 my-3" value={minutes} id="min" onChange={(e) => minuteChange(e)} />
 
-            <Timer minutes={minutes} />
+            <Timer seconds={minutes * 60} />
         </div>
     )
 }
