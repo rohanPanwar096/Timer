@@ -16,7 +16,7 @@ export default function Timer({seconds}) {
         
         let obj = {
                     "h": hours < 10 ? "0" + hours : hours,
-                    "m": minutes,
+                    "m": minutes < 10 ? "0" + minutes : minutes,
                     "s": seconds < 10 ? "0" + seconds : seconds
                 };
         
@@ -40,8 +40,6 @@ export default function Timer({seconds}) {
           interval = setInterval(() => {
                 setSecondsLeft((s) => s - 1)
             }, 1000)
-        } else {
-            clearInterval(interval)
         }
 
         return () => clearInterval(interval)
@@ -61,7 +59,7 @@ export default function Timer({seconds}) {
                 <button onClick={() => setTime(() => {
                     setActive(false);
                     document.getElementById("min").value = 0
-                    return {h: 0, m: 0, s: 0}
+                    return {h: "HH", m: "MM", s: "SS"}
                 })} className="focus:outline-none px-4 py-2 ml-3 hover:bg-gray-600 rounded-lg bg-gray-300 border-2 text-sm font-lg">Reset</button>
             </div>
         </div>

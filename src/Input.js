@@ -19,7 +19,7 @@ export default function Input() {
             <label className="pl-4 mt-4 text-lg font-lg tracking-wider" for="min">
                 Enter the Minutes :      
             </label>
-            <input className="rounded-lg border-2 border-gray py-1 px-2 my-3" value={minutes} id="min" onChange={(e) => minuteChange(e)} />
+            <input className="rounded-lg border-2 border-gray py-1 px-2 my-3 focus:outline-none" value={minutes} id="min" onChange={(e) => minuteChange(e)} />
 
             <Timer seconds={minutes * 60} />
         </div>
