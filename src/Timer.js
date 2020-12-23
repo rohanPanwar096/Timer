@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 export default function Timer({seconds}) {
 
-    const [time, setTime] = useState({})
+    const [time, setTime] = useState({});
     const [secondsLeft, setSecondsLeft] = useState(seconds);
     const [is_active, setActive] = useState(false);
 
@@ -15,22 +15,16 @@ export default function Timer({seconds}) {
         let seconds = Math.ceil(divisor_for_seconds);
         
         let obj = {
-                    "h": hours,
+                    "h": hours < 10 ? "0" + hours : hours,
                     "m": minutes,
-                    "s": seconds
+                    "s": seconds < 10 ? "0" + seconds : seconds
                 };
         
         return obj;
     }
 
     useEffect(() => {
-        if(seconds > 0) {
-            setSecondsLeft(seconds)
-        }
-
-        if(seconds === 0) {
-            setSecondsLeft(seconds)
-        }
+        setSecondsLeft(seconds)
     }, [seconds])
 
     useEffect(() => {
@@ -38,7 +32,6 @@ export default function Timer({seconds}) {
             let timeLeft = secondsToTime(secondsLeft);
             setTime(timeLeft);
         }
-
     }, [secondsLeft])
 
     useEffect(() => {
